@@ -1,0 +1,161 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.container {
+  width: 350px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #6c63ff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+button {
+  padding: 10px 15px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background: #ffffff;
+  color: #6c63ff;
+  outline: 0.5px solid #6c63ff;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  background: #f0f0f7;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+li:hover {
+  background: #e5e5ff;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #6c63ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: white;
+  background: white;
+}
+
+.tamamlandi .check {
+  background: #6c63ff;
+  color: white;
+}
+
+.tamamlandi .text {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.text {
+  font-size: 15px;
+}
+
+/* Buttonlar */
+
+.sil-btn {
+  width: 40px;
+  height: 30px;
+  background: none;
+  background-color: #ff5e5e;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sil-btn:hover {
+  background-color: #ff3737;
+  border: none;
+  outline: none;
+  scale: 1.1;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.filter {
+  flex: 1;
+  padding: 8px 2px;
+  border: none;
+  background: #e8e8ff;
+  margin: 0px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.filter:hover {
+  background: #d4d4ff;
+}
+
+.filter.active {
+  background: #6c63ff;
+  color: white;
+}
