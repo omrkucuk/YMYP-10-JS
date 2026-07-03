@@ -2,6 +2,42 @@ const input = document.querySelector("#gorevInput");
 const ekleBtn = document.querySelector("#ekleBtn");
 const liste = document.querySelector("#liste");
 const filtreButonlari = document.querySelectorAll(".filter");
+const pEtiketi = document.querySelector("p");
+
+function gorevleriKaydet() {
+  localStorage.setItem("gorevler", liste.innerHTML);
+}
+
+function gorevleriYukle() {
+  const kayitli = localStorage.getItem("gorevler");
+
+  if (kayitli) {
+    liste.innerHTML = kayitli;
+    yenidenEventBagla();
+    pEtiketi.style.display = "none";
+  }
+}
+
+function yenidenEventBagla() {
+  const gorevler = liste.querySelectorAll("li");
+
+  gorevler.forEach((li) => {
+    li.addEventListener("click", function () {
+      li.classList.toggle("tamamlandi");
+      gorevleriKaydet();
+    });
+
+    const silBtn = li.querySelector(".sil-btn");
+    silBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      li.remove();
+      pEtiketi.style.display = "block";
+      gorevleriKaydet();
+    });
+  });
+}
+
+gorevleriYukle();
 
 ekleBtn.addEventListener("click", function () {
   const metin = input.value.trim();
@@ -45,6 +81,7 @@ ekleBtn.addEventListener("click", function () {
   silBtn.addEventListener("click", function (e) {
     e.stopPropagation();
     li.remove();
+    pEtiketi.style.display = "block";
   });
 
   li.appendChild(left);
@@ -52,6 +89,8 @@ ekleBtn.addEventListener("click", function () {
   liste.appendChild(li);
 
   input.value = "";
+  pEtiketi.style.display = "none";
+  gorevleriKaydet();
 
   const aktifFiltre = document.querySelector(".filter.active").getAttribute("data-filter");
 
