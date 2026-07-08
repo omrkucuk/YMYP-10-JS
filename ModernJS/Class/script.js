@@ -49,3 +49,38 @@ const kisi2 = new Kisi("Ayşe", "Demir", 1995);
 
 console.log(kisi1.kendiniTanit());
 console.log(kisi2.kendiniTanit());
+
+// Banka Hesabı
+class BankaHesabi {
+  constructor(hesapNo, sahip, bakiye = 0) {
+    this.hesapNo = hesapNo;
+    this.sahip = sahip;
+    this.bakiye = bakiye;
+  }
+
+  paraYatir(miktar) {
+    if (miktar > 0) {
+      this.bakiye += miktar;
+      return `${miktar}₺ yatırıldı. Yeni bakiye: ${this.bakiye}₺`;
+    }
+    return "Geçersiz miktar!";
+  }
+
+  paraCek(miktar) {
+    if (miktar > 0 && miktar <= this.bakiye) {
+      this.bakiye -= miktar;
+      return `${miktar}₺ çekildi. Kalan bakiye: ${this.bakiye}₺`;
+    }
+    return "Yetersiz bakiye veya geçersiz miktar!";
+  }
+
+  bakiyeGoster() {
+    return `Hesap No: ${this.hesapNo} - Bakiye: ${this.bakiye}₺`;
+  }
+}
+
+const hesap1 = new BankaHesabi("12345", "Mehmet Kaya", 1000);
+console.log(hesap1.bakiyeGoster());
+hesap1.paraCek(500);
+console.log(hesap1.bakiyeGoster());
+console.log(hesap1.paraCek(700));
